@@ -1,0 +1,90 @@
+CREATE DOMAIN Tags AS CHAR(9)
+CHECK( 
+      VALUE ~ '^\d{3}[BK]\d{2}[CX]\d{2}$'
+      );
+
+
+CREATE DOMAIN EmpIDs AS CHAR(5)
+CHECK (
+      VALUE ~ '^\d{5}$' 
+      );
+
+
+CREATE DOMAIN PersonNames AS VARCHAR(60)
+CHECK (VALUE <> '');
+
+
+CREATE DOMAIN BreedNames AS VARCHAR(60)
+CHECK (VALUE <> '');
+
+
+CREATE DOMAIN AnimalNames AS VARCHAR(60)
+CHECK (VALUE <> '');
+
+
+CREATE DOMAIN FreeText AS VARCHAR(200);
+
+
+CREATE DOMAIN Lifespans AS INT
+CHECK(VALUE >=0 AND VALUE <=140);
+
+
+CREATE DOMAIN AnimalWeights AS INT
+CHECK(VALUE >0 AND VALUE <=1000);
+
+
+CREATE DOMAIN AnimalHeights AS INT
+CHECK(VALUE >9 AND VALUE <=500);
+
+
+CREATE DOMAIN LocCodes AS CHAR(5)
+CHECK( 
+     VALUE ~ '^(BA|PA|SH|RU)\d{3}$' 
+     ); 
+
+
+CREATE DOMAIN TimePeriod AS INT
+CHECK(VALUE >0 AND VALUE <=90);
+
+
+CREATE DOMAIN WeatherDesc AS VARCHAR(8)
+CHECK( 
+(VALUE = 'Sunny') OR 
+(VALUE = 'Cloudy') OR 
+(VALUE = 'Raining')  
+);
+
+
+CREATE DOMAIN LocNames AS VARCHAR(30)
+CHECK(VALUE <> '');
+
+
+CREATE DOMAIN AreaDomain AS INT
+CHECK(VALUE >0 AND VALUE <=1500);
+
+
+CREATE DOMAIN YesNo AS VARCHAR(3)
+CHECK( (VALUE = 'Yes') OR (VALUE = 'No'));
+
+
+CREATE DOMAIN FeedCodes AS CHAR(6)
+CHECK (
+      VALUE ~ '^\d{6}$' 
+      );
+
+
+CREATE DOMAIN StoreCodes AS CHAR(4)
+CHECK( 
+     VALUE ~ '^[FSB]\d{3}$'
+     );
+
+CREATE DOMAIN CalVal AS INT
+CHECK(VALUE >0 AND VALUE <=10000);
+
+
+CREATE DOMAIN FeedQuantities AS INT
+CHECK(VALUE >0 AND VALUE <=50);
+
+
+
+

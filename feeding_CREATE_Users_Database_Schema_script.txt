@@ -1,0 +1,18 @@
+DROP USER IF EXISTS admin;
+CREATE USER admin LOGIN PASSWORD '1234';
+
+DROP USER IF EXISTS reception;
+CREATE USER reception LOGIN PASSWORD '1234';
+
+DROP DATABASE IF EXISTS farm;
+CREATE DATABASE farm;
+
+-- admin can access the database 
+GRANT ALL ON DATABASE farm TO admin;
+
+\connect farm
+
+DROP SCHEMA IF EXISTS feedingtime;
+CREATE SCHEMA feedingtime AUTHORIZATION admin;
+
+ALTER ROLE admin IN DATABASE farm SET search_path TO feedingtime, public;
